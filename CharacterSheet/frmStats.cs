@@ -23,6 +23,7 @@ namespace CharacterSheet
         }
 
         //our points available to spend
+        //cmon work now
         public int pointsLeft = 27;
        
         public void frmStats_Load(object sender, EventArgs e)
