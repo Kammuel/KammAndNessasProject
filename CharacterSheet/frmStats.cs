@@ -56,7 +56,7 @@ namespace CharacterSheet
 
                 if (oldStrength == numStrength.Value)
                 {
-                    MessageBox.Show("8 is the minimum starting value.");
+                    MessageBox.Show("Stats may have a minimum of 8 and a maximum of 18.");
                 }
 
                 //if down button was pressed on Strength
@@ -80,7 +80,7 @@ namespace CharacterSheet
 
                 if (oldWisdom == numWisdom.Value)
                 {
-                    MessageBox.Show("8 is the minimum starting value.");
+                    MessageBox.Show("Stats may have a minimum of 8 and a maximum of 18.");
                 }
 
                 else if(oldWisdom > numWisdom.Value)
@@ -103,7 +103,7 @@ namespace CharacterSheet
 
                 if (oldCharisma == numCharisma.Value)
                 {
-                    MessageBox.Show("8 is the minimum starting value.");
+                    MessageBox.Show("Stats may have a minimum of 8 and a maximum of 18.");
                 }
 
                 else if (oldCharisma > numCharisma.Value)
@@ -125,7 +125,7 @@ namespace CharacterSheet
 
                 if (oldIntelligence == numIntelligence.Value)
                 {
-                    MessageBox.Show("8 is the minimum starting value.");
+                    MessageBox.Show("Stats may have a minimum of 8 and a maximum of 18.");
                 }
 
                 else if (oldIntelligence > numIntelligence.Value)
@@ -147,7 +147,7 @@ namespace CharacterSheet
 
                 if (oldDexterity == numDexterity.Value)
                 {
-                    MessageBox.Show("8 is the minimum starting value.");
+                    MessageBox.Show("Stats may have a minimum of 8 and a maximum of 18.");
                 }
 
                 else if (oldDexterity > numDexterity.Value)
@@ -169,7 +169,7 @@ namespace CharacterSheet
 
                 if (oldFortitude == numFortitude.Value)
                 {
-                    MessageBox.Show("8 is the minimum starting value.");
+                    MessageBox.Show("Stats may have a minimum of 8 and a maximum of 18.");
                 }
 
                 else if (oldFortitude > numFortitude.Value)
