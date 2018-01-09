@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace CharacterSheet
 {
+    //Stats Form
     public partial class frmStats : Form
     {
         public Character newChar2;
