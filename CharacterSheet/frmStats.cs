@@ -22,10 +22,10 @@ namespace CharacterSheet
             this.newChar2 = newChar;
         }
 
-        //our points available to spend
-        //cmon work now
+        //points available to spend
         public int pointsLeft = 27;
        
+        //update page on load and set the character name box text
         public void frmStats_Load(object sender, EventArgs e)
         {
             updatePage();
