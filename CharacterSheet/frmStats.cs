@@ -15,6 +15,7 @@ namespace CharacterSheet
     {
         public Character newChar2;
 
+        //Form on load
         public frmStats(Character newChar)
         {
             
