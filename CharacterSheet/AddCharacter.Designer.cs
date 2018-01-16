@@ -1,6 +1,6 @@
 ﻿namespace CharacterSheet
 {
-    partial class Form1
+    partial class AddCharacter
     {
         /// <summary>
         /// Required designer variable.
@@ -212,7 +212,7 @@
             this.Controls.Add(this.lstRaces);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.AddCharacter_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWeight)).EndInit();
             this.ResumeLayout(false);

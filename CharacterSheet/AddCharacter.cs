@@ -10,15 +10,15 @@ using System.Windows.Forms;
 
 namespace CharacterSheet
 {
-    public partial class Form1 : Form
+    public partial class AddCharacter : Form
     {
         //everything below here will be transferred
-        public Form1()
+        public AddCharacter()
         {
             InitializeComponent();
         }
 
-        public void Form1_Load(object sender, EventArgs e)
+        public void AddCharacter_Load(object sender, EventArgs e)
         {
             lstRaces.Items.Add("Human");
             lstRaces.Items.Add("Half-Orc");

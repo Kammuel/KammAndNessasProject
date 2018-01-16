@@ -43,7 +43,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNewCharName = new System.Windows.Forms.TextBox();
             this.txtPointsLeft = new System.Windows.Forms.TextBox();
-            this.btnSkills = new System.Windows.Forms.Button();
+            this.btnSaveCharacter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numStrength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWisdom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIntelligence)).BeginInit();
@@ -274,21 +274,22 @@
             this.txtPointsLeft.Size = new System.Drawing.Size(100, 20);
             this.txtPointsLeft.TabIndex = 16;
             // 
-            // btnSkills
+            // btnSaveCharacter
             // 
-            this.btnSkills.Location = new System.Drawing.Point(219, 272);
-            this.btnSkills.Name = "btnSkills";
-            this.btnSkills.Size = new System.Drawing.Size(75, 23);
-            this.btnSkills.TabIndex = 17;
-            this.btnSkills.Text = "Skills";
-            this.btnSkills.UseVisualStyleBackColor = true;
+            this.btnSaveCharacter.Location = new System.Drawing.Point(213, 272);
+            this.btnSaveCharacter.Name = "btnSaveCharacter";
+            this.btnSaveCharacter.Size = new System.Drawing.Size(103, 23);
+            this.btnSaveCharacter.TabIndex = 17;
+            this.btnSaveCharacter.Text = "Save Character";
+            this.btnSaveCharacter.UseVisualStyleBackColor = true;
+            this.btnSaveCharacter.Click += new System.EventHandler(this.btnSaveCharacter_Click);
             // 
             // frmStats
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(328, 310);
-            this.Controls.Add(this.btnSkills);
+            this.Controls.Add(this.btnSaveCharacter);
             this.Controls.Add(this.txtPointsLeft);
             this.Controls.Add(this.txtNewCharName);
             this.Controls.Add(this.label1);
@@ -335,6 +336,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNewCharName;
         private System.Windows.Forms.TextBox txtPointsLeft;
-        private System.Windows.Forms.Button btnSkills;
+        private System.Windows.Forms.Button btnSaveCharacter;
     }
 }

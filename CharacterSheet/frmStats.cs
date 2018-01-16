@@ -18,7 +18,6 @@ namespace CharacterSheet
         //Form on load
         public frmStats(Character newChar)
         {
-            
             InitializeComponent();
             this.newChar2 = newChar;
         }
@@ -51,6 +50,8 @@ namespace CharacterSheet
         {
             NumericUpDown box = (NumericUpDown)sender;
 
+            
+
             if(box.Name == "numStrength")
             {
                 int oldStrength = newChar2.Strength;
@@ -69,8 +70,16 @@ namespace CharacterSheet
 
                 else if(oldStrength < numStrength.Value)
                 {
-                    newChar2.Strength++;
-                    pointsLeft--;
+                    if (pointsLeft == 0)
+                    {
+                        MessageBox.Show("You have no points left to spend!");
+                    }
+                    else
+                    {
+                        newChar2.Strength++;
+                        pointsLeft--;
+                    }
+                    
                 }
                 
             }
@@ -92,8 +101,16 @@ namespace CharacterSheet
                 
                 else if(oldWisdom < numWisdom.Value)
                 {
-                    newChar2.Wisdom++;
-                    pointsLeft--;
+                    if (pointsLeft == 0)
+                    {
+                        MessageBox.Show("You have no points left to spend!");
+                    }
+                    else
+                    {
+                        newChar2.Wisdom++;
+                        pointsLeft--;
+                    }
+                    
                 }
                 
             }
@@ -115,8 +132,16 @@ namespace CharacterSheet
 
                 else if(oldCharisma < numCharisma.Value)
                 {
-                    newChar2.Charisma++;
-                    pointsLeft--;
+                    if (pointsLeft == 0)
+                    {
+                        MessageBox.Show("You have no points left to spend!");
+                    }
+                    else
+                    {
+                        newChar2.Charisma++;
+                        pointsLeft--;
+                    }
+                    
                 }
             }
 
@@ -137,8 +162,16 @@ namespace CharacterSheet
 
                 else if(oldIntelligence < numIntelligence.Value)
                 {
-                    newChar2.Intelligence++;
-                    pointsLeft--;
+                    if (pointsLeft == 0)
+                    {
+                        MessageBox.Show("You have no points left to spend!");
+                    }
+                    else
+                    {
+                        newChar2.Intelligence++;
+                        pointsLeft--;
+                    }
+                    
                 }
             }
 
@@ -159,8 +192,16 @@ namespace CharacterSheet
 
                 else if(oldDexterity < numDexterity.Value)
                 {
-                    newChar2.Dexterity++;
-                    pointsLeft--;
+                    if (pointsLeft == 0)
+                    {
+                        MessageBox.Show("You have no points left to spend!");
+                    }
+                    else
+                    {
+                        newChar2.Dexterity++;
+                        pointsLeft--;
+                    }
+                    
                 }
             }
 
@@ -175,23 +216,34 @@ namespace CharacterSheet
 
                 else if (oldFortitude > numFortitude.Value)
                 {
-                    
-                    
                     newChar2.Fortitude--;
                     pointsLeft++;
-                    
-                    
                 }
                 
                 else if(oldFortitude < numFortitude.Value)
                 {
-                    newChar2.Fortitude++;
-                    pointsLeft--;
+                    if (pointsLeft == 0)
+                    {
+                        MessageBox.Show("You have no points left to spend!");
+                    }
+                    else
+                    {
+                        newChar2.Fortitude++;
+                        pointsLeft--;
+                    }
+                    
                 }
             }
 
             updatePage();
 
+        }
+
+        private void btnSaveCharacter_Click(object sender, EventArgs e)
+        {
+            //We are going to add the character to the database here
+            //TODO: Get information from character object
+            //Add fields into Sql Table
         }
     }
 }
