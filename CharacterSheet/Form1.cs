@@ -12,6 +12,7 @@ namespace CharacterSheet
 {
     public partial class Form1 : Form
     {
+        //everything below here will be transferred
         public Form1()
         {
             InitializeComponent();
