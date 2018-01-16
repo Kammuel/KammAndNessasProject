@@ -242,51 +242,58 @@ namespace CharacterSheet
 
         private void btnSaveCharacter_Click(object sender, EventArgs e)
         {
-            //We are going to add the character to the database here
-            //TODO: Get information from character object
-            //Add fields into Sql Table
-            SqlConnection con = DBHelper.GetConnection();
-
-            SqlCommand addCommand = new SqlCommand();
-            addCommand.Connection = con;
-            addCommand.CommandText = "INSERT INTO Characters " +
-           "(Name, Race, Gender, Height, Weight, Strength, Wisdom, Intelligence, Charisma, Fortitude, Dexterity) " +
-            "VALUES " +
-           "( @Name, @Race, @Gender, @Height, @Weight, @Strength, @Wisdom, @Intelligence, @Charisma, @Fortitude, @Dexterity) ";
-
-            addCommand.Parameters.AddWithValue("@Name", c.Name);
-            addCommand.Parameters.AddWithValue("@Race", c.Race);
-            addCommand.Parameters.AddWithValue("@Gender", c.Gender);
-            addCommand.Parameters.AddWithValue("@Height", c.Height);
-            addCommand.Parameters.AddWithValue("@Weight", c.Weight);
-            addCommand.Parameters.AddWithValue("@Strength", c.Strength);
-            addCommand.Parameters.AddWithValue("@Wisdom", c.Wisdom);
-            addCommand.Parameters.AddWithValue("@Intelligence", c.Intelligence);
-            addCommand.Parameters.AddWithValue("@Charisma", c.Charisma);
-            addCommand.Parameters.AddWithValue("@Fortitude", c.Fortitude);
-            addCommand.Parameters.AddWithValue("@Dexterity", c.Dexterity);
-
-            try
+            if(pointsLeft > 0)
             {
-                con.Open();
-                int rowsAffected =
-                    addCommand.ExecuteNonQuery();
-                //GameCharacter added successfully
-                if (rowsAffected == 1)
-                {
-                    MessageBox.Show("Character was added to the system.");
-                }
-                else
-                {
-                    MessageBox.Show("Something went wrong.");
-                }
-            }
-            finally
-            {
-                con.Dispose();
-                //con.Close();
+                MessageBox.Show("You have points left to spend!  You should do that before saving your character");
             }
 
+            else
+            {
+                SqlConnection con = DBHelper.GetConnection();
+
+                SqlCommand addCommand = new SqlCommand();
+                addCommand.Connection = con;
+                addCommand.CommandText = "INSERT INTO Characters " +
+               "(Name, Race, Gender, Height, Weight, Strength, Wisdom, Intelligence, Charisma, Fortitude, Dexterity) " +
+                "VALUES " +
+               "( @Name, @Race, @Gender, @Height, @Weight, @Strength, @Wisdom, @Intelligence, @Charisma, @Fortitude, @Dexterity) ";
+
+                addCommand.Parameters.AddWithValue("@Name", c.Name);
+                addCommand.Parameters.AddWithValue("@Race", c.Race);
+                addCommand.Parameters.AddWithValue("@Gender", c.Gender);
+                addCommand.Parameters.AddWithValue("@Height", c.Height);
+                addCommand.Parameters.AddWithValue("@Weight", c.Weight);
+                addCommand.Parameters.AddWithValue("@Strength", c.Strength);
+                addCommand.Parameters.AddWithValue("@Wisdom", c.Wisdom);
+                addCommand.Parameters.AddWithValue("@Intelligence", c.Intelligence);
+                addCommand.Parameters.AddWithValue("@Charisma", c.Charisma);
+                addCommand.Parameters.AddWithValue("@Fortitude", c.Fortitude);
+                addCommand.Parameters.AddWithValue("@Dexterity", c.Dexterity);
+
+                try
+                {
+                    con.Open();
+                    int rowsAffected =
+                        addCommand.ExecuteNonQuery();
+                    //GameCharacter added successfully
+                    if (rowsAffected == 1)
+                    {
+                        MessageBox.Show("Character was added to the system.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something went wrong.");
+                    }
+                }
+                finally
+                {
+                    con.Dispose();
+                    //con.Close();
+                }
+                Application.Exit();
+            }
+
+            
         }
     }
 }

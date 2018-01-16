@@ -43,6 +43,7 @@ namespace CharacterSheet
         public void btnStats_Click(object sender, EventArgs e)
         {
             String gender = "";
+            String race = "";
 
             if (radMale.Checked)
             {
@@ -54,23 +55,47 @@ namespace CharacterSheet
                 gender = "Female";
             }
 
-            else
+            if(radOther.Checked)
             {
                 gender =  "Other";
             }
+
+           
             
-            
-            String race = lstRaces.SelectedItem.ToString();
             int height = (int)numHeight.Value;
             int weight = (int)numWeight.Value;
 
             newChar = createCharacter(txtName.Text, gender, race, height, weight);
             
-            frmStats stats = new frmStats(newChar);
-            
+            if(ValidateCharacter(newChar))
+            {
+                newChar.Race = lstRaces.SelectedItem.ToString();
+                frmStats stats = new frmStats(newChar);
+                stats.ShowDialog();
+            }
+        }
 
-            stats.ShowDialog(); 
+        private bool ValidateCharacter(Character newchar)
+        {
+            if(newChar.Name == "")
+            {
+                MessageBox.Show("Please input a name");
+                return false;
+            }
 
+            if(newChar.Gender == "")
+            {
+                MessageBox.Show("Please select a gender.");
+                return false;
+            }
+
+            if(lstRaces.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a race.");
+                return false;
+            }
+
+            return true;
         }
         
     }
