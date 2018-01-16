@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,48 +14,48 @@ namespace CharacterSheet
     //Stats Form
     public partial class frmStats : Form
     {
-        public Character newChar2;
+        public Character c;
 
         //Form on load
         public frmStats(Character newChar)
         {
             InitializeComponent();
-            this.newChar2 = newChar;
+            this.c = newChar;
         }
 
         //points available to spend
         public int pointsLeft = 27;
-       
+
         //update page on load and set the character name box text
         public void frmStats_Load(object sender, EventArgs e)
         {
             updatePage();
-            txtNewCharName.Text = newChar2.Name;
+            txtNewCharName.Text = c.Name;
         }
 
         public void updatePage()
         {
             txtPointsLeft.Text = Convert.ToString(pointsLeft);
-            
 
-            numStrength.Value = newChar2.Strength;
-            numCharisma.Value = newChar2.Charisma;
-            numDexterity.Value = newChar2.Dexterity;
-            numIntelligence.Value = newChar2.Intelligence;
-            numFortitude.Value = newChar2.Fortitude;
-            numWisdom.Value = newChar2.Wisdom;
+
+            numStrength.Value = c.Strength;
+            numCharisma.Value = c.Charisma;
+            numDexterity.Value = c.Dexterity;
+            numIntelligence.Value = c.Intelligence;
+            numFortitude.Value = c.Fortitude;
+            numWisdom.Value = c.Wisdom;
         }
-        
+
 
         private void StatsChanged(object sender, MouseEventArgs e)
         {
             NumericUpDown box = (NumericUpDown)sender;
 
-            
 
-            if(box.Name == "numStrength")
+
+            if (box.Name == "numStrength")
             {
-                int oldStrength = newChar2.Strength;
+                int oldStrength = c.Strength;
 
                 if (oldStrength == numStrength.Value)
                 {
@@ -64,11 +65,11 @@ namespace CharacterSheet
                 //if down button was pressed on Strength
                 else if (oldStrength > numStrength.Value)
                 {
-                    newChar2.Strength--;
+                    c.Strength--;
                     pointsLeft++;
                 }
 
-                else if(oldStrength < numStrength.Value)
+                else if (oldStrength < numStrength.Value)
                 {
                     if (pointsLeft == 0)
                     {
@@ -76,30 +77,30 @@ namespace CharacterSheet
                     }
                     else
                     {
-                        newChar2.Strength++;
+                        c.Strength++;
                         pointsLeft--;
                     }
-                    
+
                 }
-                
+
             }
 
-            if(box.Name == "numWisdom")
+            if (box.Name == "numWisdom")
             {
-                int oldWisdom = newChar2.Wisdom;
+                int oldWisdom = c.Wisdom;
 
                 if (oldWisdom == numWisdom.Value)
                 {
                     MessageBox.Show("Stats may have a minimum of 8 and a maximum of 18.");
                 }
 
-                else if(oldWisdom > numWisdom.Value)
+                else if (oldWisdom > numWisdom.Value)
                 {
-                    newChar2.Wisdom--;
+                    c.Wisdom--;
                     pointsLeft++;
                 }
-                
-                else if(oldWisdom < numWisdom.Value)
+
+                else if (oldWisdom < numWisdom.Value)
                 {
                     if (pointsLeft == 0)
                     {
@@ -107,17 +108,17 @@ namespace CharacterSheet
                     }
                     else
                     {
-                        newChar2.Wisdom++;
+                        c.Wisdom++;
                         pointsLeft--;
                     }
-                    
+
                 }
-                
+
             }
 
             if (box.Name == "numCharisma")
             {
-                int oldCharisma = newChar2.Charisma;
+                int oldCharisma = c.Charisma;
 
                 if (oldCharisma == numCharisma.Value)
                 {
@@ -126,11 +127,11 @@ namespace CharacterSheet
 
                 else if (oldCharisma > numCharisma.Value)
                 {
-                    newChar2.Charisma--;
+                    c.Charisma--;
                     pointsLeft++;
                 }
 
-                else if(oldCharisma < numCharisma.Value)
+                else if (oldCharisma < numCharisma.Value)
                 {
                     if (pointsLeft == 0)
                     {
@@ -138,16 +139,16 @@ namespace CharacterSheet
                     }
                     else
                     {
-                        newChar2.Charisma++;
+                        c.Charisma++;
                         pointsLeft--;
                     }
-                    
+
                 }
             }
 
             if (box.Name == "numIntelligence")
             {
-                int oldIntelligence = newChar2.Intelligence;
+                int oldIntelligence = c.Intelligence;
 
                 if (oldIntelligence == numIntelligence.Value)
                 {
@@ -156,11 +157,11 @@ namespace CharacterSheet
 
                 else if (oldIntelligence > numIntelligence.Value)
                 {
-                    newChar2.Intelligence--;
+                    c.Intelligence--;
                     pointsLeft++;
                 }
 
-                else if(oldIntelligence < numIntelligence.Value)
+                else if (oldIntelligence < numIntelligence.Value)
                 {
                     if (pointsLeft == 0)
                     {
@@ -168,16 +169,16 @@ namespace CharacterSheet
                     }
                     else
                     {
-                        newChar2.Intelligence++;
+                        c.Intelligence++;
                         pointsLeft--;
                     }
-                    
+
                 }
             }
 
             if (box.Name == "numDexterity")
             {
-                int oldDexterity = newChar2.Dexterity;
+                int oldDexterity = c.Dexterity;
 
                 if (oldDexterity == numDexterity.Value)
                 {
@@ -186,11 +187,11 @@ namespace CharacterSheet
 
                 else if (oldDexterity > numDexterity.Value)
                 {
-                    newChar2.Dexterity--;
+                    c.Dexterity--;
                     pointsLeft++;
                 }
 
-                else if(oldDexterity < numDexterity.Value)
+                else if (oldDexterity < numDexterity.Value)
                 {
                     if (pointsLeft == 0)
                     {
@@ -198,16 +199,16 @@ namespace CharacterSheet
                     }
                     else
                     {
-                        newChar2.Dexterity++;
+                        c.Dexterity++;
                         pointsLeft--;
                     }
-                    
+
                 }
             }
 
             if (box.Name == "numFortitude")
             {
-                int oldFortitude = newChar2.Fortitude;
+                int oldFortitude = c.Fortitude;
 
                 if (oldFortitude == numFortitude.Value)
                 {
@@ -216,11 +217,11 @@ namespace CharacterSheet
 
                 else if (oldFortitude > numFortitude.Value)
                 {
-                    newChar2.Fortitude--;
+                    c.Fortitude--;
                     pointsLeft++;
                 }
-                
-                else if(oldFortitude < numFortitude.Value)
+
+                else if (oldFortitude < numFortitude.Value)
                 {
                     if (pointsLeft == 0)
                     {
@@ -228,10 +229,10 @@ namespace CharacterSheet
                     }
                     else
                     {
-                        newChar2.Fortitude++;
+                        c.Fortitude++;
                         pointsLeft--;
                     }
-                    
+
                 }
             }
 
@@ -244,6 +245,48 @@ namespace CharacterSheet
             //We are going to add the character to the database here
             //TODO: Get information from character object
             //Add fields into Sql Table
+            SqlConnection con = DBHelper.GetConnection();
+
+            SqlCommand addCommand = new SqlCommand();
+            addCommand.Connection = con;
+            addCommand.CommandText = "INSERT INTO Characters " +
+           "(Name, Race, Gender, Height, Weight, Strength, Wisdom, Intelligence, Charisma, Fortitude, Dexterity) " +
+            "VALUES " +
+           "( @Name, @Race, @Gender, @Height, @Weight, @Strength, @Wisdom, @Intelligence, @Charisma, @Fortitude, @Dexterity) ";
+
+            addCommand.Parameters.AddWithValue("@Name", c.Name);
+            addCommand.Parameters.AddWithValue("@Race", c.Race);
+            addCommand.Parameters.AddWithValue("@Gender", c.Gender);
+            addCommand.Parameters.AddWithValue("@Height", c.Height);
+            addCommand.Parameters.AddWithValue("@Weight", c.Weight);
+            addCommand.Parameters.AddWithValue("@Strength", c.Strength);
+            addCommand.Parameters.AddWithValue("@Wisdom", c.Wisdom);
+            addCommand.Parameters.AddWithValue("@Intelligence", c.Intelligence);
+            addCommand.Parameters.AddWithValue("@Charisma", c.Charisma);
+            addCommand.Parameters.AddWithValue("@Fortitude", c.Fortitude);
+            addCommand.Parameters.AddWithValue("@Dexterity", c.Dexterity);
+
+            try
+            {
+                con.Open();
+                int rowsAffected =
+                    addCommand.ExecuteNonQuery();
+                //GameCharacter added successfully
+                if (rowsAffected == 1)
+                {
+                    MessageBox.Show("Character was added to the system.");
+                }
+                else
+                {
+                    MessageBox.Show("Something went wrong.");
+                }
+            }
+            finally
+            {
+                con.Dispose();
+                //con.Close();
+            }
+
         }
     }
 }
