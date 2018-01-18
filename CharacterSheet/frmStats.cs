@@ -279,6 +279,7 @@ namespace CharacterSheet
                     if (rowsAffected == 1)
                     {
                         MessageBox.Show("Character was added to the system.");
+                        this.Close();
                     }
                     else
                     {

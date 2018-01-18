@@ -70,18 +70,18 @@ namespace CharacterSheet
 
             SqlConnection con = DBHelper.GetConnection();
 
-            SqlCommand addCommand = new SqlCommand();
-            addCommand.Connection = con;
-            addCommand.CommandText = "DELETE FROM Characters " +
+            SqlCommand delCommand = new SqlCommand();
+            delCommand.Connection = con;
+            delCommand.CommandText = "DELETE FROM Characters " +
            "WHERE Name = @Name";
 
-            addCommand.Parameters.AddWithValue("@Name", deleteName);
+            delCommand.Parameters.AddWithValue("@Name", deleteName);
 
             try
             {
                 con.Open();
                 int rowsAffected =
-                    addCommand.ExecuteNonQuery();
+                    delCommand.ExecuteNonQuery();
                 //GameCharacter added successfully
                 if (rowsAffected == 1)
                 {
