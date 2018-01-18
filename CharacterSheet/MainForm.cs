@@ -24,5 +24,11 @@ namespace CharacterSheet
 
             Add.ShowDialog();
         }
+
+        private void btnUpdateCharacter_Click(object sender, EventArgs e)
+        {
+            UpdateCharacter Update = new UpdateCharacter();
+            Update.Show();
+        }
     }
 }
