@@ -24,8 +24,6 @@ namespace CharacterSheet
             cboRace.SelectedItem = c.Race;
             numWeight.Value = c.Weight;
             numHeight.Value = c.Height;
-
-            MessageBox.Show(Convert.ToString(c.CharacterID));
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -39,6 +37,11 @@ namespace CharacterSheet
         {
             if(ValidateSheet())
             {
+                c.Name = txtName.Text;
+                c.Race = (string)cboRace.SelectedItem;
+                c.Gender = (string)cboGender.SelectedItem;
+                c.Height = (int)numHeight.Value;
+                c.Weight = (int)numWeight.Value;
 
 
                 SqlConnection con = DBHelper.GetConnection();
