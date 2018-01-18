@@ -10,20 +10,16 @@ using System.Windows.Forms;
 
 namespace CharacterSheet
 {
-    public partial class MainForm : Form
+    public partial class UpdateCharacter : Form
     {
-        public MainForm()
+        public UpdateCharacter()
         {
             InitializeComponent();
-            populateCharacterBox();
         }
 
-        private void btnAddCharacter_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            //yes, the naming convention is bad right here
-            AddCharacter Add = new AddCharacter();
-
-            Add.ShowDialog();
+            Close();
         }
     }
 }
