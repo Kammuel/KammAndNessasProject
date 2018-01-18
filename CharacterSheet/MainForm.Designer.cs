@@ -69,6 +69,7 @@
             this.btnDeleteCharacter.TabIndex = 3;
             this.btnDeleteCharacter.Text = "Delete Character";
             this.btnDeleteCharacter.UseVisualStyleBackColor = true;
+            this.btnDeleteCharacter.Click += new System.EventHandler(this.btnDeleteCharacter_Click);
             // 
             // MainForm
             // 

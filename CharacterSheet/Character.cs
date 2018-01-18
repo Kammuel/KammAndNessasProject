@@ -8,6 +8,7 @@ namespace CharacterSheet
 {
     public class Character
     {
+        public int CharacterID { get; set; }
         public String Name { get; set; }
         public String Race { get; set; }
         public String Gender { get; set; }
@@ -66,6 +67,11 @@ namespace CharacterSheet
                 this.Strength += 2;
                 this.Dexterity -= 2;
             }
+        }
+
+        public Character()
+        {
+
         }
 
         public Character getCharacter()

@@ -15,6 +15,7 @@ namespace CharacterSheet
         public MainForm()
         {
             InitializeComponent();
+            populateCharacterBox();
         }
 
         private void btnAddCharacter_Click(object sender, EventArgs e)
@@ -23,6 +24,27 @@ namespace CharacterSheet
             AddCharacter Add = new AddCharacter();
 
             Add.ShowDialog();
+        }
+
+        private void populateCharacterBox()
+        {
+            lstCharacters.Items.Clear();
+            List<Character> characters = DBHelper.GetCharacters();
+
+            foreach(Character c in characters)
+            {
+                lstCharacters.Items.Add(c.Name);
+            }
+        }
+
+        private void btnDeleteCharacter_Click(object sender, EventArgs e)
+        {
+            string deleteName = (string)lstCharacters.SelectedItem;
+            
+            if (DBHelper.DeleteCharacter(deleteName))
+            {
+                MessageBox.Show("Character deleted");
+            }
         }
     }
 }
